@@ -1,0 +1,148 @@
+{
+  "dataset": {
+    "rows": 20000,
+    "default_rate": 0.2214,
+    "train": 12000,
+    "validation": 4000,
+    "test": 4000,
+    "source": "wallet_credit_synthetic.csv",
+    "synthetic": true
+  },
+  "model_comparison_cv": {
+    "Majority-class baseline": {
+      "cv_auc_mean": 0.5,
+      "cv_auc_std": 0.0
+    },
+    "Logistic regression": {
+      "cv_auc_mean": 0.7706219573612402,
+      "cv_auc_std": 0.00883782712726995
+    },
+    "Random forest": {
+      "cv_auc_mean": 0.7625818130974515,
+      "cv_auc_std": 0.013504287845104846
+    },
+    "Gradient boosting (unconstrained)": {
+      "cv_auc_mean": 0.7688636182761994,
+      "cv_auc_std": 0.011037801439036841
+    },
+    "Gradient boosting (monotonic)": {
+      "cv_auc_mean": 0.7712761812705731,
+      "cv_auc_std": 0.0099065844559818
+    }
+  },
+  "feature_ablation_validation": {
+    "wallet activity + tier only (original feature set)": {
+      "roc_auc": 0.6775267451587602,
+      "pr_auc": 0.3688918298886448,
+      "ks": 0.2667970035563559,
+      "brier": 0.160530153406421,
+      "log_loss": 0.4947428377046861,
+      "accuracy": 0.78075,
+      "precision": 0.6216216216216216,
+      "recall": 0.025959367945823927,
+      "f1": 0.04983748645720477
+    },
+    "+ repayment history (proposed)": {
+      "roc_auc": 0.7625744652780497,
+      "pr_auc": 0.5328103033933576,
+      "ks": 0.3857522497249007,
+      "brier": 0.13857821911322094,
+      "log_loss": 0.4399110228004266,
+      "accuracy": 0.8165,
+      "precision": 0.7134831460674157,
+      "recall": 0.2866817155756208,
+      "f1": 0.40901771336553944
+    }
+  },
+  "final_test": {
+    "uncalibrated": {
+      "roc_auc": 0.7723401438274796,
+      "pr_auc": 0.5334011422109283,
+      "ks": 0.40496413381578106,
+      "brier": 0.1375627175815503,
+      "log_loss": 0.43545649175059853,
+      "accuracy": 0.8185,
+      "precision": 0.7202216066481995,
+      "recall": 0.2937853107344633,
+      "f1": 0.4173354735152488
+    },
+    "calibrated": {
+      "roc_auc": 0.7723401438274796,
+      "pr_auc": 0.5334011422109283,
+      "ks": 0.40496413381578106,
+      "brier": 0.1375741742693332,
+      "log_loss": 0.43545728493822733,
+      "accuracy": 0.8185,
+      "precision": 0.7202216066481995,
+      "recall": 0.2937853107344633,
+      "f1": 0.4173354735152488
+    }
+  },
+  "operating_point": {
+    "threshold_chosen_on_validation": 0.3,
+    "test_metrics": {
+      "roc_auc": 0.7723401438274796,
+      "pr_auc": 0.5334011422109283,
+      "ks": 0.40496413381578106,
+      "brier": 0.1375741742693332,
+      "log_loss": 0.43545728493822733,
+      "accuracy": 0.785,
+      "precision": 0.5150060024009604,
+      "recall": 0.4847457627118644,
+      "f1": 0.49941792782305006
+    }
+  },
+  "score_bands_test": {
+    "0-399": {
+      "wallets": 311,
+      "observed_default_rate": 0.7459807073954984
+    },
+    "400-549": {
+      "wallets": 90,
+      "observed_default_rate": 0.5444444444444444
+    },
+    "550-649": {
+      "wallets": 157,
+      "observed_default_rate": 0.39490445859872614
+    },
+    "650-749": {
+      "wallets": 594,
+      "observed_default_rate": 0.28619528619528617
+    },
+    "750-1000": {
+      "wallets": 2848,
+      "observed_default_rate": 0.1306179775280899
+    }
+  },
+  "permutation_importance_auc_drop": {
+    "loans_defaulted": {
+      "mean": 0.14028515203453318,
+      "std": 0.003416928140830291
+    },
+    "Tier": {
+      "mean": 0.06505218960560802,
+      "std": 0.004903363065558589
+    },
+    "total_transactions": {
+      "mean": 0.03835969565887681,
+      "std": 0.0030316847188845775
+    },
+    "loans_repaid": {
+      "mean": 0.011270361201041124,
+      "std": 0.002525040100178309
+    },
+    "num_previous_loans": {
+      "mean": 0.003145813495842098,
+      "std": 0.0013788360640983968
+    },
+    "total_previous_loans_eth": {
+      "mean": 0.00034609280771917826,
+      "std": 0.0005301984112932981
+    },
+    "holding_days": {
+      "mean": 0.00016678909232713534,
+      "std": 0.00022061637203792426
+    }
+  },
+  "runtime_seconds": 13.3
+}

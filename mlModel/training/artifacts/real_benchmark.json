@@ -1,0 +1,38 @@
+{
+  "dataset": {
+    "name": "UCI Default of Credit Card Clients",
+    "rows": 30000,
+    "default_rate": 0.2212,
+    "features": 23
+  },
+  "models": {
+    "Majority-class baseline": {
+      "cv_auc": 0.5,
+      "cv_auc_std": 0.0,
+      "test_auc": 0.5,
+      "test_pr_auc": 0.22116666666666668,
+      "test_brier": 0.17225197395833333
+    },
+    "Logistic regression": {
+      "cv_auc": 0.7261086682065602,
+      "cv_auc_std": 0.011088011250113668,
+      "test_auc": 0.7076355036089734,
+      "test_pr_auc": 0.4939009720942785,
+      "test_brier": 0.14671847009720898
+    },
+    "Random forest": {
+      "cv_auc": 0.78480690975763,
+      "cv_auc_std": 0.004636410469420875,
+      "test_auc": 0.7750498260703675,
+      "test_pr_auc": 0.5535635015155973,
+      "test_brier": 0.1354418657805522
+    },
+    "Gradient boosting": {
+      "cv_auc": 0.7826921146809964,
+      "cv_auc_std": 0.005928093290701636,
+      "test_auc": 0.7792309586521425,
+      "test_pr_auc": 0.5578837673087557,
+      "test_brier": 0.13506441526346638
+    }
+  }
+}
